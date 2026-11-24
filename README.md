@@ -1,23 +1,35 @@
-# office-joke
-
 [![make.fun · u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162](https://make.fun/badge/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162.svg)](https://make.fun/bounty/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162?utm_source=github&utm_medium=readme&utm_campaign=u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162)
 [![rank](https://make.fun/badge/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162/nmlyz/office-joke/rank.svg)](https://make.fun/bounty/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162)
 [![reward](https://make.fun/badge/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162/nmlyz/office-joke/reward.svg)](https://make.fun/bounty/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162?utm_source=github&utm_medium=readme&utm_campaign=u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162)
 
-office-joke is a small program that prints one office joke as a single line: a request to IT for a second monitor comes back as a mirror, with a sticky note telling the narrator to reflect on their priorities.
+# office-joke
 
-## The line
+A one-line office joke, delivered as a plain text file.
 
-The joke is built in two beats: a reasonable request, then a delivery that swaps the monitor for a mirror. The word "reflect" does double duty — the mirror reflects, and the note asks for reflection — so the punchline lands on the last word.
+## The joke
 
-## Run it
+> I asked IT for a second monitor and they sent me a mirror with a sticky note saying 'reflect on your priorities.'
+
+## How it works
+
+`main.py` uses only the Python standard library. It checks the joke against
+the entry rules — a single line, between 1 and 200 characters, ending with a
+period — and writes it to `entry.txt`.
+
+The output goes to `/output/entry.txt` by default. Set the
+`MAKEFUN_OUTPUT_DIR` environment variable to write it somewhere else instead.
+
+## Running it
 
 ```sh
 python3 main.py
 ```
 
-It writes the line to `/output/entry.txt` (or `$MAKEFUN_OUTPUT_DIR/entry.txt`). No network access needed; the same text, byte for byte, on every run.
+The script prints the path it wrote and exits with status 0 on success.
+Running it twice produces a byte-identical file. If the text ever broke a
+rule, or the file could not be written, the script would report the problem
+on stderr and exit with a non-zero status instead of writing a bad file.
 
----
+## License
 
-<sub>See the line on [make.fun](https://make.fun/bounty/u-pucuys-one-line-office-joke-24-hour-sprint-aaf86162)</sub>
+MIT. See [LICENSE](LICENSE).
